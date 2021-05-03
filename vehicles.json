@@ -1,0 +1,23 @@
+[ {
+  "id" : 1,
+  "type" : "Седан",
+  "brand" : "BMW",
+  "model" : "3 series",
+  "yearOfIssue" : 1995,
+  "engine" : {
+    "type" : "Petrol",
+    "countOfCylinders" : 4,
+    "horsePowers" : 110.0,
+    "torque" : 195.0,
+    "volume" : 1.8,
+    "started" : false
+  },
+  "transmission" : {
+    "type" : "Manual",
+    "countOfGears" : 5
+  },
+  "wheelDriveType" : {
+    "type" : "Rear"
+  },
+  "mileage" : 10000.0
+} ]

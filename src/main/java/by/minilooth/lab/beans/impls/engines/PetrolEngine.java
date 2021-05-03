@@ -1,26 +1,35 @@
 package by.minilooth.lab.beans.impls.engines;
 
-import by.minilooth.lab.beans.interfaces.Engine;
+import by.minilooth.lab.beans.interfaces.abstracts.AbstractEngine;
 
-public class PetrolEngine implements Engine {
+public class PetrolEngine extends AbstractEngine {
 
-    private final String type = "Бензиновый";
-    private String name;
+    private final String type = "Petrol";
+    private Integer countOfCylinders;
     private Float horsePowers;
     private Float torque;
-    private Integer countOfCylinders;
     private Float volume;
-
-    private Boolean isStarted;
+    private Boolean started = false;
 
     public PetrolEngine() { }
 
-    public String getName() {
-        return name;
+    public PetrolEngine(Integer countOfCylinders, Float horsePowers, Float torque, Float volume) {
+        this.countOfCylinders = countOfCylinders;
+        this.horsePowers = horsePowers;
+        this.torque = torque;
+        this.volume = volume;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getType() {
+        return type;
+    }
+
+    public Integer getCountOfCylinders() {
+        return countOfCylinders;
+    }
+
+    public void setCountOfCylinders(Integer countOfCylinders) {
+        this.countOfCylinders = countOfCylinders;
     }
 
     public Float getHorsePowers() {
@@ -39,14 +48,6 @@ public class PetrolEngine implements Engine {
         this.torque = torque;
     }
 
-    public Integer getCountOfCylinders() {
-        return countOfCylinders;
-    }
-
-    public void setCountOfCylinders(Integer countOfCylinders) {
-        this.countOfCylinders = countOfCylinders;
-    }
-
     public Float getVolume() {
         return volume;
     }
@@ -56,31 +57,45 @@ public class PetrolEngine implements Engine {
     }
 
     public Boolean getStarted() {
-        return isStarted;
+        return started;
     }
 
     public void setStarted(Boolean started) {
-        isStarted = started;
-    }
-
-    @Override
-    public String getType() {
-        return type;
+        this.started = started;
     }
 
     @Override
     public void start() {
-
+        if (!started) {
+            this.started = true;
+            System.out.println("Petrol engine started");
+        }
+        else {
+            System.out.println("Petrol engine already started");
+        }
     }
 
     @Override
     public void stop() {
-
+        if (!started) {
+            this.started = false;
+            System.out.println("Petrol engine stopped");
+        }
+        else {
+            System.out.println("Petrol engine already stopped");
+        }
     }
 
     @Override
-    public void accelerate() {
-
+    public String toString() {
+        return "PetrolEngine{" +
+                "type='" + type + '\'' +
+                ", countOfCylinders=" + countOfCylinders +
+                ", horsePowers=" + horsePowers +
+                ", torque=" + torque +
+                ", volume=" + volume +
+                ", started=" + started +
+                '}';
     }
 
 }

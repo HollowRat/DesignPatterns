@@ -4,10 +4,14 @@ import by.minilooth.lab.beans.interfaces.Transmission;
 
 public class ManualTransmission implements Transmission {
 
-    private final String type = "Механическая";
+    private final String type = "Manual";
     private Integer countOfGears;
 
     public ManualTransmission() {}
+
+    public ManualTransmission(Integer countOfGears) {
+        this.countOfGears = countOfGears;
+    }
 
     public Integer getCountOfGears() {
         return countOfGears;

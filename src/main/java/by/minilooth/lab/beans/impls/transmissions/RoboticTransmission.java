@@ -4,10 +4,14 @@ import by.minilooth.lab.beans.interfaces.Transmission;
 
 public class RoboticTransmission implements Transmission {
 
-    private final String type = "Роботизированная";
+    private final String type = "Robotic";
     private Integer countOfGears;
 
     public RoboticTransmission() { }
+
+    public RoboticTransmission(Integer countOfGears) {
+        this.countOfGears = countOfGears;
+    }
 
     public Integer getCountOfGears() {
         return countOfGears;

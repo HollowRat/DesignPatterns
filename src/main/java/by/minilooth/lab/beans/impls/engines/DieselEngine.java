@@ -1,26 +1,35 @@
 package by.minilooth.lab.beans.impls.engines;
 
-import by.minilooth.lab.beans.interfaces.Engine;
+import by.minilooth.lab.beans.interfaces.abstracts.AbstractEngine;
 
-public class DieselEngine implements Engine {
+public class DieselEngine extends AbstractEngine {
 
-    private final String type = "Дизельный";
-    private String name;
+    private final String type = "Diesel";
+    private Integer countOfCylinders;
     private Float horsePowers;
     private Float torque;
-    private Integer countOfCylinders;
     private Float volume;
-
-    private Boolean isStarted;
+    private Boolean started = false;
 
     public DieselEngine() { }
 
-    public String getName() {
-        return name;
+    public DieselEngine(Integer countOfCylinders, Float horsePowers, Float torque, Float volume) {
+        this.countOfCylinders = countOfCylinders;
+        this.horsePowers = horsePowers;
+        this.torque = torque;
+        this.volume = volume;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getType() {
+        return type;
+    }
+
+    public Integer getCountOfCylinders() {
+        return countOfCylinders;
+    }
+
+    public void setCountOfCylinders(Integer countOfCylinders) {
+        this.countOfCylinders = countOfCylinders;
     }
 
     public Float getHorsePowers() {
@@ -39,14 +48,6 @@ public class DieselEngine implements Engine {
         this.torque = torque;
     }
 
-    public Integer getCountOfCylinders() {
-        return countOfCylinders;
-    }
-
-    public void setCountOfCylinders(Integer countOfCylinders) {
-        this.countOfCylinders = countOfCylinders;
-    }
-
     public Float getVolume() {
         return volume;
     }
@@ -55,32 +56,38 @@ public class DieselEngine implements Engine {
         this.volume = volume;
     }
 
-    public Boolean getStarted() {
-        return isStarted;
-    }
-
-    public void setStarted(Boolean started) {
-        isStarted = started;
-    }
-
-    @Override
-    public String getType() {
-        return type;
-    }
-
     @Override
     public void start() {
-
+        if (!started) {
+            this.started = true;
+            System.out.println("Diesel engine started");
+        }
+        else {
+            System.out.println("Diesel engine already started");
+        }
     }
 
     @Override
     public void stop() {
-
+        if (!started) {
+            this.started = false;
+            System.out.println("Diesel engine stopped");
+        }
+        else {
+            System.out.println("Diesel engine already stopped");
+        }
     }
 
     @Override
-    public void accelerate() {
-
+    public String toString() {
+        return "DieselEngine{" +
+                "type='" + type + '\'' +
+                ", countOfCylinders=" + countOfCylinders +
+                ", horsePowers=" + horsePowers +
+                ", torque=" + torque +
+                ", volume=" + volume +
+                ", started=" + started +
+                '}';
     }
 
 }

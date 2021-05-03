@@ -2,7 +2,7 @@ package by.minilooth.lab.beans.interfaces;
 
 public interface Vehicle {
 
-    void refuel(Float liters);
+    Integer getId();
 
     void openDoors();
     void closeDoors();
